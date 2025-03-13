@@ -36,7 +36,7 @@ public class streams {
 
         //return average age of list of persons
         double averageAge = list3.stream()
-                .mapToInt(p -> p.getAge())
+                .mapToInt(Person::getAge)
                 .average()
                 .orElse(0);
         System.out.println(averageAge);

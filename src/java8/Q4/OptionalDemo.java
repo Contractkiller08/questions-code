@@ -1,8 +1,6 @@
 package java8.Q4;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class OptionalDemo {
     public static void main(String[] args) {
@@ -26,6 +24,20 @@ public class OptionalDemo {
         // Note scenario
         Optional<Student> student = Optional.ofNullable(null);
         System.out.println(student);
+
+        List<Student> list = Arrays.asList(new Student("satyam",12,1),
+                        new Student("chetan",23,2),
+                        new Student("vibhor",34,3));
+
+        OptionalInt maxAge = list.stream()
+                .mapToInt(Student::getAge)
+                .max();
+
+        if(maxAge.isPresent()){
+            System.out.println(maxAge.getAsInt());
+        }
+
+
 
     }
 }
